@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <form>
+        <div class="parent">
+
+            <section id="section1">
+                <h1>Drawing App</h1>
+                <input type="color" id="userInput" onchange="selectColor(event)">
+                <label>Width:</label><input type="range" id="range" onchange="selectColor()" value="20" >
+                <div class="buttons">
+                    <button onclick="clearBoard()" id="clearButton">Erase</button>
+                    <button onclick="savePic()" id="saveButton">Download Image</button>
+                </div>
+            </section>
+
+            <canvas id="htmlCanvas">
+
+            </canvas>
+        </div>
+    </form>
+    <!-- <canvas id="canvas"></canvas> -->
+    <script src="./app.js"></script>
+</body>
+
+</html>
