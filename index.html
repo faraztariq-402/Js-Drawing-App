@@ -16,9 +16,9 @@
             <section id="section1">
                 <h1>Drawing App</h1>
                 <input type="color" id="userInput" onchange="selectColor(event)">
-                <label>Width:</label><input type="range" id="range" onchange="selectColor()" value="20" >
+                <label>Width:</label><input type="range" id="range" onchange="selectColor()" value="0"  min="0" max="20">
                 <div class="buttons">
-                    <button onclick="clearBoard()" id="clearButton">Erase</button>
+                    <button onclick="clearBoard(event)" id="clearButton">Erase</button>
                     <button onclick="savePic()" id="saveButton">Download Image</button>
                 </div>
             </section>
