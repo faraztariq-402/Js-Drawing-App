@@ -178,7 +178,6 @@ let selectColor = () => {
     let userColor = document.getElementById("userInput").value;
     context.strokeStyle = userColor || "#00ff0"; // set default stroke color to black
     context.lineWidth = range.value;
-vcv  mbnnnnnnnnnnn
 }
 
 let startDrawing = () => {
