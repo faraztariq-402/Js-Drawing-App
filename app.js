@@ -6,7 +6,7 @@ let range = document.getElementById("range");
 let lineWidth = 10
 window.addEventListener("load", () => {
     canvas.width = 1600;
-    canvas.height = 1000;
+    canvas.height = canvas.offsetHeight;
 });
 
 let selectColor = () => {
@@ -47,8 +47,40 @@ let startDrawing = () => {
     canvas.addEventListener("mouseleave", () => {
         isDrawing = false;
     });
-}
 
+canvas.addEventListener("touchstart", (event) => {
+    // console.log(event)
+    isDrawing = true;
+    let touch = event.touches[0];
+    x = touch.pageX - canvas.offsetLeft;
+    y = touch.pageY - canvas.offsetTop;
+    context.beginPath();
+    context.range = lineWidth
+    context.moveTo(x, y);
+});
+
+canvas.addEventListener("touchmove", (event) => {
+    if (isDrawing === true) {
+        event.preventDefault(); // Prevent scrolling on touch devices
+        let touch = event.touches[0];
+        let offsetX = touch.pageX - canvas.offsetLeft;
+        let offsetY = touch.pageY - canvas.offsetTop;
+        context.lineTo(offsetX, offsetY);
+        context.stroke();
+        x = offsetX;
+        y = offsetY;
+    }
+});
+canvas.addEventListener("touchend", (event) => {
+    isDrawing = false;
+    event.preventDefault();
+});
+
+canvas.addEventListener("touchcancel", (event) => {
+    isDrawing = false;
+    event.preventDefault();
+});
+}
 let clearBoard = (event) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
     event.preventDefault(); // add this line to prevent form submission

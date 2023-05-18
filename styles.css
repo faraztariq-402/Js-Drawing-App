@@ -10,7 +10,7 @@
 }
 
 canvas {
-     /* height: 120%; */
+     height: 100vh;
      border: 3px solid red;
     /* width: 100vw;  */
     cursor: crosshair;
