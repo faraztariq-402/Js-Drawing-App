@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drawing App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -16,10 +18,30 @@
             <section id="section1">
                 <h1>Drawing App</h1>
                 <input type="color" id="userInput" onchange="selectColor(event)">
-                <label>Width:</label><input type="range" id="range" onchange="selectColor()" value="0"  min="0" max="20">
+                <div class="brush" style="display: flex; align-items: center; margin-top: 1rem;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-brush-fill" viewBox="0 0 16 16" style="color: white; margin-right:0.5rem"
+                        onfocus="startDrawing()" onclick="startDrawing()" onchange="startDrawing()" id="brush">
+                        <path
+                            d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z" />
+                    </svg><span style="color: white;">Brush</span></div>
+                <label>Width:</label><input type="range" id="range" value="0" min="0" max="20">
                 <div class="buttons">
-                    <button onclick="clearBoard(event)" id="clearButton">Erase</button>
-                    <button onclick="savePic()" id="saveButton">Download Image</button>
+                    <div class="mainsvg">
+                        <div class="svg"><svg onclick="eraseFunction()" onfocus="eraseFunction()" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16"
+                                style="margin-right: 0.5rem;"   id="eraser">
+
+                                <path
+                                    d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z" />
+                            </svg><span>Eraser</span></div>
+
+                        <input type="range" id="eraserRange" value="5" min="0" max="25">
+                    </div>
+                    <div class="mybuttons" style="display: flex;">
+                        <button onclick="clearBoard(event)" id="clearButton">Clear Board</button>
+                        <button onclick="savePic()" id="saveButton">Download Image</button>
+                    </div>
                 </div>
             </section>
 
@@ -28,7 +50,11 @@
             </canvas>
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
     <script src="./app.js"></script>
+
 </body>
 
 </html>

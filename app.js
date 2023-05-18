@@ -1,9 +1,12 @@
-
 let canvas = document.getElementById("htmlCanvas");
 let context = canvas.getContext("2d");
 let range = document.getElementById("range");
-// console.log(range)
-let lineWidth = 10
+let eraser = document.getElementById("eraser");
+let eraserRange = document.getElementById("eraserRange");
+let brush = document.getElementById("brush");
+let lineWidth = 10;
+
+
 window.addEventListener("load", () => {
     canvas.width = 1600;
     canvas.height = canvas.offsetHeight;
@@ -11,9 +14,19 @@ window.addEventListener("load", () => {
 
 let selectColor = () => {
     let userColor = document.getElementById("userInput").value;
-    context.strokeStyle = userColor || "#00ff0"; // set default stroke color to black
+    context.strokeStyle = userColor || "#000000"; // set default stroke color to black
     context.lineWidth = range.value;
-}
+};
+
+let switchToBrush = () => {
+    context.globalCompositeOperation = "source-over"; // Set brush mode
+    context.lineWidth = range.value;
+};
+
+let switchToEraser = () => {
+    context.globalCompositeOperation = "destination-out"; // Set eraser mode
+    context.lineWidth = eraserRange.value;
+};
 
 let startDrawing = () => {
     let isDrawing = false;
@@ -25,16 +38,13 @@ let startDrawing = () => {
         x = event.offsetX;
         y = event.offsetY;
         context.beginPath();
-        context.range = lineWidth
+        context.moveTo(x, y);
     });
 
     canvas.addEventListener("mousemove", (event) => {
-        if (isDrawing === true) {
-            context.beginPath();
-            context.moveTo(x, y);
+        if (isDrawing) {
             context.lineTo(event.offsetX, event.offsetY);
             context.stroke();
-            context.lineCap = "round"
             x = event.offsetX;
             y = event.offsetY;
         }
@@ -48,20 +58,16 @@ let startDrawing = () => {
         isDrawing = false;
     });
 
-canvas.addEventListener("touchstart", (event) => {
-    // console.log(event)
-    isDrawing = true;
-    let touch = event.touches[0];
-    x = touch.pageX - canvas.offsetLeft;
-    y = touch.pageY - canvas.offsetTop;
-    context.beginPath();
-    context.range = lineWidth
-    context.moveTo(x, y);
-});
+    canvas.addEventListener("touchstart", (event) => {
+        let touch = event.touches[0];
+        x = touch.pageX - canvas.offsetLeft;
+        y = touch.pageY - canvas.offsetTop;
+        context.beginPath();
+        context.moveTo(x, y);
+    });
 
-canvas.addEventListener("touchmove", (event) => {
-    if (isDrawing === true) {
-        event.preventDefault(); // Prevent scrolling on touch devices
+    canvas.addEventListener("touchmove", (event) => {
+        event.preventDefault();
         let touch = event.touches[0];
         let offsetX = touch.pageX - canvas.offsetLeft;
         let offsetY = touch.pageY - canvas.offsetTop;
@@ -69,22 +75,13 @@ canvas.addEventListener("touchmove", (event) => {
         context.stroke();
         x = offsetX;
         y = offsetY;
-    }
-});
-canvas.addEventListener("touchend", (event) => {
-    isDrawing = false;
-    event.preventDefault();
-});
+    });
+};
 
-canvas.addEventListener("touchcancel", (event) => {
-    isDrawing = false;
-    event.preventDefault();
-});
-}
 let clearBoard = (event) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    event.preventDefault(); // add this line to prevent form submission
-}
+    event.preventDefault()
+};
 
 let savePic = () => {
     let urlData = canvas.toDataURL("image/png");
@@ -94,10 +91,12 @@ let savePic = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
+};
 
 document.getElementById("userInput").addEventListener("change", selectColor);
 document.getElementById("range").addEventListener("change", selectColor);
 
+eraser.addEventListener("click", switchToEraser);
+brush.addEventListener("click", switchToBrush);
+
 startDrawing();
-selectColor();
