@@ -1,6 +1,6 @@
 #section1 {
     /* height: 100vh; */
-    /* width: 30%; */
+    width: 30vw;
     background-color: rgb(141, 141, 151);
     display: flex;
     flex-direction: column;
@@ -14,18 +14,56 @@
     justify-content: center;
     /* flex-direction: column; */
 }
-.mainsvg{
+.mybuttons{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
+
 canvas {
-     height: 100vh;
+     /* height: 100vh; */
      border: 3px solid red;
     /* width: 100vw;  */
     cursor: crosshair;
      /* background-color: rgb(133, 76, 76);  */
 }
+ .shapes{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+ /* .triangle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     /* Adjust the height as needed 
+ }*/
+  
+  .triangle p {
+    margin-bottom: 0.3rem; /* Adjust the spacing between the paragraph and SVG */
+  }
+  .circle p{
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .rectangle p{
+    margin-top: 1rem;
 
+    margin-bottom: 0.3rem;
+  }
+ .circlepic{
+    
+    height: 1rem;
+    width: 2rem;
+}
+.rectanglepic{
+    
+        height: 1rem;
+        width: 2rem;
+    
+} 
 .parent {
     display: flex;
 
@@ -58,7 +96,6 @@ button {
     align-items: center;
     margin: 1rem;
     cursor: pointer;
-
 }
 
 .buttons {

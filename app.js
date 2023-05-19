@@ -5,8 +5,10 @@ let eraser = document.getElementById("eraser");
 let eraserRange = document.getElementById("eraserRange");
 let brush = document.getElementById("brush");
 let lineWidth = 10;
-
-
+let triangleShape = document.getElementById("triangleShape")
+let circlePic = document.getElementById("circlePic")
+let rectanglePic = document.getElementById("rectanglePic") 
+let isDrawing = false
 window.addEventListener("load", () => {
     canvas.width = 1600;
     canvas.height = canvas.offsetHeight;
@@ -23,13 +25,21 @@ let switchToBrush = () => {
     context.lineWidth = range.value;
 };
 
+
+
+
+
+
+
+  
+
 let switchToEraser = () => {
     context.globalCompositeOperation = "destination-out"; // Set eraser mode
     context.lineWidth = eraserRange.value;
 };
 
 let startDrawing = () => {
-    let isDrawing = false;
+     isDrawing = false;
     let x = 0;
     let y = 0;
 
