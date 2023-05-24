@@ -59,13 +59,14 @@ canvas.addEventListener("mousemove", (event) => {
       context.lineTo(event.offsetX, event.offsetY);
       context.stroke();
     } else if (currentMode === "triangle") {
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0,0, canvas.width,canvas.height)
+
       context.beginPath();
       context.moveTo(finalOffsetX, finalOffsetY); // Move to the initial point
       context.lineTo(event.offsetX, event.offsetY); // Draw a line to the current mouse position
       context.lineTo(
         finalOffsetX + (finalOffsetX - event.offsetX),
-        event.offsetY
+        event.offsetY,
       ); // Draw a line to the calculated third point
       context.closePath(); // Close the path
       context.stroke(); // Stroke the triangle outline
@@ -79,18 +80,21 @@ canvas.addEventListener("mousemove", (event) => {
       finalOffsetX = event.offsetX;
       finalOffsetY = event.offsetY;
       context.globalCompositeOperation = "destination-out";
-      context.strokeStyle = board.style.backgroundColor;
+      context.strokeStyle = canvas.style.backgroundColor;
       context.lineCap = "round";// Draw a line to the calculated third point
       context.closePath(); // Close the path
       context.stroke(); // Stroke the triangle outline
+
+
     }  else if (currentMode === "rectangle") {
-    
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0,0, canvas.width,canvas.height)
       let width = event.offsetX - finalOffsetX;
       let height = event.offsetY - finalOffsetY;
       context.strokeRect(finalOffsetX, finalOffsetY, width, height);
+      
+
     } else if (currentMode === "circle") {
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0,0, canvas.width,canvas.height)
       let radius = Math.sqrt(
         Math.pow(event.offsetX - finalOffsetX, 2) +
           Math.pow(event.offsetY - finalOffsetY, 2)
@@ -98,6 +102,8 @@ canvas.addEventListener("mousemove", (event) => {
       context.beginPath();
       context.arc(finalOffsetX, finalOffsetY, radius, 0, 2 * Math.PI);
       context.stroke();
+      
+
     }
   }
 });
@@ -139,38 +145,39 @@ canvas.addEventListener("touchmove", (event) => {
       context.lineCap = "round";
     }
      else if (currentMode === "triangle") {
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0,0, canvas.width,canvas.height)
       context.beginPath();
       context.moveTo(finalOffsetX, finalOffsetY); // Move to the initial point
       context.lineTo(offsetX, offsetY); // Draw a line to the current touch position
       context.lineTo(finalOffsetX + (finalOffsetX - offsetX), offsetY); // Draw a line to the calculated third point
       context.closePath(); // Close the path
       context.stroke(); // Stroke the triangle outline
-    } else if (currentMode === "rectangle") {
       
-      context.clearRect(0, 0, canvas.width, canvas.height);
+
+    } else if (currentMode === "rectangle") {
+        context.clearRect(0,0, canvas.width,canvas.height)
       context.beginPath();
       // context.moveTo(finalOffsetX, finalOffsetY); // Move to the initial point
       // context.lineTo(offsetX, offsetY);
       let width = offsetX - finalOffsetX;
       let height = offsetY - finalOffsetY;
       context.strokeRect(finalOffsetX, finalOffsetY, width, height);
+    
+
     } else if (currentMode === "circle") {
       let radius = Math.sqrt(
         Math.pow(offsetX - finalOffsetX,2) +
         Math.pow(offsetY - finalOffsetY,2)
       );
+      context.clearRect(0,0, canvas.width,canvas.height)
     
-      // Clear the canvas
-      context.clearRect(0, 0, canvas.width, canvas.height);
-    
-      // Redraw any existing elements on the canvas
-      // ...
+   
     
       // Draw the circle
       context.beginPath();
       context.arc(finalOffsetX, finalOffsetY, radius, 0, 2 * Math.PI);
       context.stroke();
+
       }
 
     
