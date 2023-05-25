@@ -13,8 +13,8 @@ let finalOffsetX, finalOffsetY;
 
 
 window.addEventListener("load", () => {
-canvas.width = canvas.offsetWidth
-canvas.height = canvas.offsetHeight
+canvas.width = 1600
+canvas.height = 1000
 
 });
 let selectColor = () => {
