@@ -11,11 +11,12 @@ let currentMode = "brush"; // Default mode is brush
 let isDrawing = false;
 let finalOffsetX, finalOffsetY;
 
-window.addEventListener("load", () => {
-  canvas.width = 1600;
-  canvas.height = 1000;
-});
 
+window.addEventListener("load", () => {
+canvas.width = canvas.offsetWidth
+canvas.height = canvas.offsetHeight
+
+});
 let selectColor = () => {
   let userColor = document.getElementById("userInput").value;
   context.strokeStyle = userColor || "#000000"; // set default stroke color to black

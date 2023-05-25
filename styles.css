@@ -1,6 +1,6 @@
 #section1 {
-    /* height: 100vh; */
-    width: 30vw;
+    height: 100vh;
+    flex-basis: 30vw;
     background-color: rgb(67, 67, 70);
     display: flex;
     flex-direction: column;
@@ -8,18 +8,10 @@
     flex-direction: column;
     align-items: center;
 }
-.animatedHeading{
-    
-    /* background-color: red; */
-    animation-name: example;
-    animation-duration: 9s;
-  }
-  
-  @keyframes example {
-    0%   {color: red;}
-    25%  {color: rgb(3, 3, 3);}
-    50%  {color: rgb(46, 46, 77);}
-    100% {color: rgb(228, 233, 156);}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 .svg{
     display: flex;
@@ -33,9 +25,9 @@
 }
 
 canvas {
-     /* height: 100vh; */
+     height: 100vh;
      border: 3px solid red;
-    /* width: 100vw;  */
+     flex-grow: 1;
     cursor: crosshair;
      /* background-color: rgb(133, 76, 76);  */
 }
@@ -45,6 +37,7 @@ canvas {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
  }
  /* .triangle {
     display: flex;
@@ -53,7 +46,7 @@ canvas {
     justify-content: center;
      /* Adjust the height as needed 
  }*/
-  
+
   .triangle p {
     margin-bottom: 0.3rem; /* Adjust the spacing between the paragraph and SVG */
   }
@@ -68,18 +61,26 @@ canvas {
   }
  .circlepic{
     
-    height: 1.5rem;
-    width: 2.5rem;
+    height: 2.4rem;
+    width: 2.9rem;
 }
 .rectanglepic{
-    
-        height: 1.5rem;
-        width: 2.5rem;
-    
+    border: 1.3px solid white;
+        height: 1.9rem;
+        width: 3.4rem;
+        margin-left: auto;
+        margin-right: auto;
+
 } 
+.triangleShape{
+    height: 2.1rem;
+    width: 3rem;
+}
 .parent {
     display: flex;
-
+height: 100%;
+width: 100vw; /* Set container width to 100% of viewport width */
+overflow-x: hidden;
 }
 
 h1 {

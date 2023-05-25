@@ -20,7 +20,7 @@
                 <input type="color" id="userInput" onchange="selectColor(event)">
                 <div class="brush" style="display: flex; align-items: center; margin-top: 1rem;"><svg
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-brush-fill" viewBox="0 0 16 16" style="color: white; margin-right:0.5rem"
+                        class="bi bi-brush-fill" viewBox="0 0 16 16" style="color: white; margin-right:0.5rem ;cursor: pointer;"
                         onfocus="startDrawing()" onclick="startDrawing()" onchange="startDrawing()" id="brush">
                         <path
                             d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z" />
@@ -28,18 +28,17 @@
                     <h1>Shapes:</h1>
                     
                     <div class="shapes">
-                    <div class="triangle"><p style="color: white;">Triangle</p><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16" id="triangleShape" class="triangleShape">
-                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                      </svg></div>
-                    <div class="circle"><p style="color: white;">Circle</p><img src="./images/circle-removebg-preview.png" id="circlePic" class="circlepic"></div>
-                    <div class="rectangle"><p style="color: white;">Rectangle</p><img src="./images/rectangle-removebg-preview.png" id="rectanglePic" class="rectanglepic" ></div>
+                    <div class="triangle"><p style="color: white;">Triangle</p><img src="./images/white_triangle-removebg-preview (1).png"    id="triangleShape" class="triangleShape">
+                      </img ></div>
+                    <div class="circle"><p style="color: white;">Circle</p><img src="./images/circle_white-removebg-preview.png" id="circlePic" class="circlepic" ></div>
+                    <div class="rectangle"><p style="color: white;">Rectangle</p><div id="rectanglePic" class="rectanglepic" ></div>
 </div>
-                    <label>Line-Width:</label><input type="range" id="range" value="0" min="0" max="20">
+                    <label style="text-align: center;">Line-Width:</label><input type="range" id="range" value="0" min="0" max="20">
                 <div class="buttons">
                     <div class="mainsvg">
-                        <div class="svg"><svg  onfocus="switchToEraser()" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        <div class="svg"><svg  onfocus="() => switchMode('eraser')" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                 fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16"
-                                style="margin-right: 0.5rem;"   id="eraser">
+                                style="margin-right: 0.5rem; cursor: pointer;"   id="eraser">
 
                                 <path
                                     d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z" />
